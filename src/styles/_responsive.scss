@@ -1,0 +1,139 @@
+@use "variables";
+
+@mixin responsive($max-screen-size) {
+    @media (max-width: $max-screen-size) {
+        @content;
+    }
+}
+/* Header*/
+header {
+
+    @include responsive(variables.$breakpoint-extra-small) {
+        nav{
+            width: 80%;
+            nav ul li{
+                font-size: smaller;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    @include responsive(variables.$breakpoint-small) {
+        nav{
+            width: 70%;
+            nav ul li{
+                font-size: smaller;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            .nav-hide, .nav-more, .nav-info{
+                display: none;
+            }
+            &:hover {
+                ul {
+                  flex-direction: column;
+                  align-items: flex-start;
+                  .nav-hide,
+                  .nav-info,
+                  .nav-more {
+                    display: flex;
+                  }
+                }
+            }
+        }
+    }
+    @include responsive(variables.$breakpoint-medium) {
+        nav{
+            width: 90%;
+            ul{
+                ul{
+                    justify-content:center;
+                
+                    li{
+                        font-size: smaller;
+                        margin-left: 5px;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    @include responsive(variables.$breakpoint-large) {
+        nav{
+            width: 70%;
+            ul{
+                justify-content: center;
+                li{
+                    font-size: smaller;
+                margin-left: 10px;
+                margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+/* Body*/
+body{
+    @include responsive(variables.$breakpoint-small) {
+        .sellers{
+            height: auto;
+            display: flex;
+            align-items: center; 
+            h1{
+                text-align: center;
+            }
+            .locations{
+                flex-direction: column;
+                align-items: center;
+                >div{
+                    width: 80%;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .cars{
+            flex-flow: column-reverse;
+            form{
+                width: 100%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .offers{
+                margin-top: 20px;
+                margin-bottom: 20px;
+            width: 100%;
+            }
+        }
+    }
+}
+
+/* Footer*/
+footer {
+    @include responsive(variables.$breakpoint-small) {
+        background-color: variables.$tamnoPlava;
+        flex-direction: column;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        .desni{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+    @include responsive(variables.$breakpoint-medium) {
+        justify-content:space-evenly;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        a:nth-child(5){
+            flex-basis: 100%;    
+            text-align: center;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+}
