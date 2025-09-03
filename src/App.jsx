@@ -66,7 +66,14 @@ const App = () => {
   return (
     <div>
       <Header/>
-      <Locations locations={locations}/>
+      <section className="sellers">
+        <h1>Prodajne lokacije</h1>
+          <div className="locations">
+              {locations.map((location, index) => (
+              <Locations key={index} location={location} index={index} />
+              ))}
+          </div>
+      </section>
       <Cars cars={cars}/>
       <Footer/>
     </div>
